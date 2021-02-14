@@ -1,0 +1,52 @@
+流操作算子
+#include<iomanip>
+hex    oct
+setbase(n)
+setfill(n)
+setw(n)
+
+
+//不同进制
+cout << hex << 10 << endl;
+cout << 10 << endl;
+cout << oct << 8 << endl;
+
+//浮点数精度
+cout << setprecision(4) << 1.11111 << endl;
+
+//左右对齐
+cout << setw(6) << right << 10 << endl;
+
+setw(2) << setfill('0') << endl;
+
+------
+
+控制小数
+在cout语句后加入fixed(个人习惯简单)其他三种也可以
+
+//第一种写法
+	cout<<setiosflags(ios::fixed)<<setprecision(2);	
+
+//第二种写法
+	cout.setf(ios::fixed);
+	cout<<setprecision(2);
+
+//第三种写法
+cout<<fixed<<setprecision(2);
+
+保留几位小数setprecison(n)n就写多少
+同样一次使用对后续都有效
+ #include<iostream>
+#include<iomanip> 
+using namespace std;
+int main(void) 
+{
+	float a=3.1415926;
+	float b=3.13434343;
+	float c=4.6557646; 
+	cout<<a<<endl; //编译器默认6位有效数字，不同编译器可能不同
+	cout<<fixed<<setprecision(4)<<a<<endl;//仅输出四位小数
+	cout<<b<<endl;//同时b也会受到上面一行代码的影响
+	cout<<setprecision(6)<<c<<endl;//重新设置成6 位
+	
+}
